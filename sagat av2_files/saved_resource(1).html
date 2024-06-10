@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<!-- saved from url=(0014)about:internet -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  
+  <title>PAD1 - AV2 (Ficha Completável)</title>
+  
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="googlebot" content="noindex, nofollow">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+  <script type="text/javascript" src="./dummy.js.download"></script>
+
+    <link rel="stylesheet" type="text/css" href="./result-light.css">
+
+
+  <style id="compiled-css" type="text/css">
+    input[type=number],input[type=text] {
+  border: 2px solid black;
+  height: 16pt;
+  border-radius: 16px;
+  padding-left: 8px;
+  padding-right: 8px;
+  width: 24pt;
+}
+
+input[type=text] {
+  width: 144pt;
+}
+
+label, body {
+  font-family: sans-serif;
+  font-size: 14pt;
+  color: black;
+  font-weight: bold;
+}
+
+input[disabled] {
+  background-color: lightgray;
+}
+
+    /* EOS */
+  </style>
+
+  <script id="insert"></script>
+
+    <script src="./stringify.js.download" charset="utf-8"></script>
+    <script>
+      const customConsole = (w) => {
+        const pushToConsole = (payload, type) => {
+          w.parent.postMessage({
+            console: {
+              payload: stringify(payload),
+              type:    type
+            }
+          }, "*")
+        }
+
+        w.onerror = (message, url, line, column) => {
+          // the line needs to correspond with the editor panel
+          // unfortunately this number needs to be altered every time this view is changed
+          line = line - 70
+          if (line < 0){
+            pushToConsole(message, "error")
+          } else {
+            pushToConsole(`[${line}:${column}] ${message}`, "error")
+          }
+        }
+
+        let console = (function(systemConsole){
+          return {
+            log: function(){
+              let args = Array.from(arguments)
+              pushToConsole(args, "log")
+              systemConsole.log.apply(this, args)
+            },
+            info: function(){
+              let args = Array.from(arguments)
+              pushToConsole(args, "info")
+              systemConsole.info.apply(this, args)
+            },
+            warn: function(){
+              let args = Array.from(arguments)
+              pushToConsole(args, "warn")
+              systemConsole.warn.apply(this, args)
+            },
+            error: function(){
+              let args = Array.from(arguments)
+              pushToConsole(args, "error")
+              systemConsole.error.apply(this, args)
+            },
+            system: function(arg){
+              pushToConsole(arg, "system")
+            },
+            clear: function(){
+              systemConsole.clear.apply(this, {})
+            },
+            time: function(){
+              let args = Array.from(arguments)
+              systemConsole.time.apply(this, args)
+            },
+            assert: function(assertion, label){
+              if (!assertion){
+                pushToConsole(label, "log")
+              }
+
+              let args = Array.from(arguments)
+              systemConsole.assert.apply(this, args)
+            }
+          }
+        }(window.console))
+
+        window.console = { ...window.console, ...console }
+
+        console.system("Running fiddle")
+      }
+
+      if (window.parent){
+        customConsole(window)
+      }
+    </script>
+</head>
+<body>
+    <h2>
+Ficha de RPG
+</h2>
+<p>
+<label>Nome:</label>
+<input type="text" id="nome">
+<label>Nível:</label>
+<input type="number" id="nivel">
+</p>
+
+<p>
+<label>Força:</label>
+<input type="number" id="forca">
+<label>Poder de Ataque:</label>
+<input type="number" id="poder" disabled="">
+</p>
+
+<p>
+<label>Agilidade:</label>
+<input type="number" id="agilidade">
+<label>Armadura:</label>
+<input type="number" id="armadura">
+<label>Defesa:</label>
+<input type="number" id="defesa" disabled="">
+</p>
+
+
+    <script type="text/javascript">
+
+var nome = document.querySelector("#nome")
+
+nome.addEventListener("change",lerNome)
+
+function lerNome() {
+
+console.log(nome.value)
+}
+
+var nivel = document.querySelector("#nivel")
+
+nivel.addEventListener("change",lerNivel)
+
+
+function lerNivel() {
+	var nivel_numero = parseInt(nivel.value)
+
+if (nivel_numero>=5) {
+
+console.log(nome.value + "[VETERANO]")
+}
+
+else{
+console.log(nome.value + "[INICIANTE]")
+}
+}
+
+var força = document.querySelector('#forca')
+var poder = document.querySelector("#poder")
+
+forca.addEventListener("change",atualizarPoderdeAtaque)
+nivel.addEventListener("change",atualizarPoderdeAtaque)
+
+function atualizarPoderdeAtaque() {
+    var nivel_numero = parseInt(nivel.value);
+    var forca_numero = parseInt(forca.value);
+
+    var poderAtaque = (forca_numero - 10) / 2 + nivel_numero / 2;
+
+    poder.value = poderAtaque;
+    console.log("Poder de Ataque atualizado: " + poderAtaque);
+}
+
+
+var agilidade = document.querySelector("#agilidade")
+var armadura = document.querySelector("#armadura")
+var defesa = document.querySelector("#defesa")
+
+agilidade.addEventListener("change",atualizarDefesa)
+armadura.addEventListener("change",atualizarDefesa)
+
+function atualizarDefesa() {
+var agilidade_numero = parseInt(agilidade.value)
+var armadura_numero = parseInt(armadura.value)
+
+var novaDefesa = agilidade_numero + armadura_numero;
+
+defesa.value = novaDefesa;
+console.log("Defesa atualizada: " + novaDefesa);
+}
+
+  </script>
+
+  <script>
+    // tell the embed parent frame the height of the content
+    if (window.parent && window.parent.parent){
+      window.parent.parent.postMessage(["resultsFrame", {
+        height: document.body.getBoundingClientRect().height,
+        slug: ""
+      }], "*")
+    }
+
+    // always overwrite window.name, in case users try to set it manually
+    window.name = "result"
+  </script>
+
+    <script>
+      let allLines = []
+
+      window.addEventListener("message", (message) => {
+        if (message.data.console){
+          let insert = document.querySelector("#insert")
+          allLines.push(message.data.console.payload)
+          insert.innerHTML = allLines.join(";\r")
+
+          let result = eval.call(null, message.data.console.payload)
+          if (result !== undefined){
+            console.log(result)
+          }
+        }
+      })
+    </script>
+
+
+
+</body></html>

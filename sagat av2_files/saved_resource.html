@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<!-- saved from url=(0014)about:internet -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    
+    <meta http-equiv="edit-Type" edit="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>PAD1 - AV2 (Ficha Completável) - JSFiddle</title>
+
+      <meta name="robots" content="index, follow">
+      <meta name="googlebot" content="index, follow">
+
+      <script type="text/javascript">
+        var height
+        var force_height = null
+        var slug = "9ahrwfjc"
+        var show_src = "//fiddle.jshell.net/Bernardo2004/9ahrwfjc/5/show/light/"
+        var resize_element_counter = 0
+        var shell_edit_url = "/Bernardo2004/9ahrwfjc/5/light/"
+
+      </script>
+
+      <script src="./highlight.pack.js.download"></script>
+      <script src="./embed.js.download"></script>
+      <link rel="stylesheet" media="screen" href="./embed-light.css">
+
+    <style type="text/css" media="screen">
+    /* */</style>
+
+  </head>
+  <body>
+    <div id="full-embed">
+        <header>
+          <h1>
+            <a href="https://jsfiddle.net/Bernardo2004/9ahrwfjc/5/" target="_blank">
+              <svg width="34" height="40">
+      <use xlink:href="//jsfiddle.net/sprite.svg#logo"></use>
+    </svg>Edit in JSFiddle
+            </a>
+          </h1>
+          <div id="actions">
+            <ul class="normalRes">
+                <li class="active">
+                  <a data-trigger-type="js" href="https://jsfiddle.net/Bernardo2004/9ahrwfjc/5/embedded/#JavaScript">JavaScript</a>
+                </li>
+                <li class="">
+                  <a data-trigger-type="html" href="https://jsfiddle.net/Bernardo2004/9ahrwfjc/5/embedded/#HTML">HTML</a>
+                </li>
+                <li class="">
+                  <a data-trigger-type="css" href="https://jsfiddle.net/Bernardo2004/9ahrwfjc/5/embedded/#CSS">CSS</a>
+                </li>
+                <li class="">
+                  <a data-trigger-type="result" href="https://jsfiddle.net/Bernardo2004/9ahrwfjc/5/embedded/#Result">Result</a>
+                </li>
+            </ul>
+            <div class="hl" style="left: 0px; width: 80px;"></div>
+          </div>
+        </header>
+
+        <div id="tabs">
+              <pre class="tCont JavaScript active hljs"><span class="hljs-keyword">var</span> nome = <span class="hljs-built_in">document</span>.querySelector(<span class="hljs-string">"#nome"</span>)
+
+nome.addEventListener(<span class="hljs-string">"change"</span>,lerNome)
+
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">lerNome</span>(<span class="hljs-params"></span>) </span>{
+
+<span class="hljs-built_in">console</span>.log(nome.value)
+}
+
+<span class="hljs-keyword">var</span> nivel = <span class="hljs-built_in">document</span>.querySelector(<span class="hljs-string">"#nivel"</span>)
+
+nivel.addEventListener(<span class="hljs-string">"change"</span>,lerNivel)
+
+
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">lerNivel</span>(<span class="hljs-params"></span>) </span>{
+	<span class="hljs-keyword">var</span> nivel_numero = <span class="hljs-built_in">parseInt</span>(nivel.value)
+
+<span class="hljs-keyword">if</span> (nivel_numero&gt;=<span class="hljs-number">5</span>) {
+
+<span class="hljs-built_in">console</span>.log(nome.value + <span class="hljs-string">"[VETERANO]"</span>)
+}
+
+<span class="hljs-keyword">else</span>{
+<span class="hljs-built_in">console</span>.log(nome.value + <span class="hljs-string">"[INICIANTE]"</span>)
+}
+}
+
+<span class="hljs-keyword">var</span> <span class="hljs-keyword">for</span>ça = <span class="hljs-built_in">document</span>.querySelector(<span class="hljs-string">'#forca'</span>)
+<span class="hljs-keyword">var</span> poder = <span class="hljs-built_in">document</span>.querySelector(<span class="hljs-string">"#poder"</span>)
+
+forca.addEventListener(<span class="hljs-string">"change"</span>,atualizarPoderdeAtaque)
+nivel.addEventListener(<span class="hljs-string">"change"</span>,atualizarPoderdeAtaque)
+
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">atualizarPoderdeAtaque</span>(<span class="hljs-params"></span>) </span>{
+    <span class="hljs-keyword">var</span> nivel_numero = <span class="hljs-built_in">parseInt</span>(nivel.value);
+    <span class="hljs-keyword">var</span> forca_numero = <span class="hljs-built_in">parseInt</span>(forca.value);
+
+    <span class="hljs-keyword">var</span> poderAtaque = (forca_numero - <span class="hljs-number">10</span>) / <span class="hljs-number">2</span> + nivel_numero / <span class="hljs-number">2</span>;
+
+    poder.value = poderAtaque;
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"Poder de Ataque atualizado: "</span> + poderAtaque);
+}
+
+
+<span class="hljs-keyword">var</span> agilidade = <span class="hljs-built_in">document</span>.querySelector(<span class="hljs-string">"#agilidade"</span>)
+<span class="hljs-keyword">var</span> armadura = <span class="hljs-built_in">document</span>.querySelector(<span class="hljs-string">"#armadura"</span>)
+<span class="hljs-keyword">var</span> defesa = <span class="hljs-built_in">document</span>.querySelector(<span class="hljs-string">"#defesa"</span>)
+
+agilidade.addEventListener(<span class="hljs-string">"change"</span>,atualizarDefesa)
+armadura.addEventListener(<span class="hljs-string">"change"</span>,atualizarDefesa)
+
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">atualizarDefesa</span>(<span class="hljs-params"></span>) </span>{
+<span class="hljs-keyword">var</span> agilidade_numero = <span class="hljs-built_in">parseInt</span>(agilidade.value)
+<span class="hljs-keyword">var</span> armadura_numero = <span class="hljs-built_in">parseInt</span>(armadura.value)
+
+<span class="hljs-keyword">var</span> novaDefesa = agilidade_numero + armadura_numero;
+
+defesa.value = novaDefesa;
+<span class="hljs-built_in">console</span>.log(<span class="hljs-string">"Defesa atualizada: "</span> + novaDefesa);
+}</pre>
+              <pre class="tCont HTML hljs"><span class="hljs-tag">&lt;<span class="hljs-name">h2</span>&gt;</span>
+Ficha de RPG
+<span class="hljs-tag">&lt;/<span class="hljs-name">h2</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">label</span>&gt;</span>Nome:<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">text</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"nome"</span> /&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">label</span>&gt;</span>Nível:<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">number</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"nivel"</span> /&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+
+<span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">label</span>&gt;</span>Força:<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">number</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"forca"</span> /&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">label</span>&gt;</span>Poder de Ataque:<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">number</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"poder"</span> <span class="hljs-attr">disabled</span> /&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+
+<span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">label</span>&gt;</span>Agilidade:<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">number</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"agilidade"</span> /&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">label</span>&gt;</span>Armadura:<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">number</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"armadura"</span> /&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">label</span>&gt;</span>Defesa:<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">number</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"defesa"</span> <span class="hljs-attr">disabled</span> /&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+</pre>
+              <pre class="tCont CSS hljs"><span class="hljs-selector-tag">input</span><span class="hljs-selector-attr">[type=number]</span>,<span class="hljs-selector-tag">input</span><span class="hljs-selector-attr">[type=text]</span> {
+  <span class="hljs-attribute">border</span>: <span class="hljs-number">2px</span> solid black;
+  <span class="hljs-attribute">height</span>: <span class="hljs-number">16pt</span>;
+  <span class="hljs-attribute">border-radius</span>: <span class="hljs-number">16px</span>;
+  <span class="hljs-attribute">padding-left</span>: <span class="hljs-number">8px</span>;
+  <span class="hljs-attribute">padding-right</span>: <span class="hljs-number">8px</span>;
+  <span class="hljs-attribute">width</span>: <span class="hljs-number">24pt</span>;
+}
+
+<span class="hljs-selector-tag">input</span><span class="hljs-selector-attr">[type=text]</span> {
+  <span class="hljs-attribute">width</span>: <span class="hljs-number">144pt</span>;
+}
+
+<span class="hljs-selector-tag">label</span>, <span class="hljs-selector-tag">body</span> {
+  <span class="hljs-attribute">font-family</span>: sans-serif;
+  <span class="hljs-attribute">font-size</span>: <span class="hljs-number">14pt</span>;
+  <span class="hljs-attribute">color</span>: black;
+  <span class="hljs-attribute">font-weight</span>: bold;
+}
+
+<span class="hljs-selector-tag">input</span><span class="hljs-selector-attr">[disabled]</span> {
+  <span class="hljs-attribute">background-color</span>: lightgray;
+}</pre>
+              <div class="tCont result " id="result">
+              </div>
+        </div>
+    </div>
+    
+<!-- Google tag (gtag.js) -->
+<script async="" src="./js"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function analytics_jsf(){dataLayer.push(arguments);}
+  analytics_jsf("js", new Date());
+  analytics_jsf("config", "G-DG76L8EKG3", {
+    page_path:     "/[user]/[fiddle]/[revision]/[embedded]/",
+    cookie_prefix: "jsfiddle",
+    
+  })
+</script>
+
+  
+
+</body></html>
